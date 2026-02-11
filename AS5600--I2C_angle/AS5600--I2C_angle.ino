@@ -1,11 +1,27 @@
-/************************************************************************************************************
- 🔹 LECTURA DE ÁNGULO CON AS5600 vía I2C (Wire1) 🔹
-  - Lee el ángulo del sensor AS5600 conectado a GP26 (SDA) y GP27 (SCL) usando I2C.
-  - Convierte el valor crudo de 12 bits (0–4095) a grados (0°–360°).
-  - Muestra el ángulo por Serial cada 200 ms.
-  - Usa Wire1 para I2C independiente de los pines por defecto.
-  K. Michalsky – 11.2025
-*************************************************************************************************************/
+// ========================================================================
+//                 🔸 A S 5 6 0 0  -  I 2 C   A N G L E 🔸 
+// ========================================================================
+//  Archivo    : AS5600--I2C_angle.ino
+//  Autor      : Klaus Michalsky
+//  Fecha      : Feb-2026
+//
+//  DESCRIPCION
+//  -----------------------------------------------------------------------
+//  - Lee el ángulo del sensor AS5600 conectado a GP26 (SDA) y GP27 (SCL) 
+//    usando I2C.
+//  - Convierte el valor crudo de 12 bits (0–4095) a grados (0°–360°).
+//  - Muestra el ángulo por Serial cada 200 ms.
+//  - Usa Wire1 para I2C independiente de los pines por defecto.
+//
+//  HARDWARE
+//  -----------------------------------------------------------------------
+//  MCU     : RP2040-Zero
+//  Sensor  : AS5600
+//
+//  ESTADO
+//  -----------------------------------------------------------------------
+//  ✅ Funcional
+// ========================================================================
 
 #include <Wire.h>        // Librería para comunicación I2C
 #define AS5600_ADDR 0x36 // Dirección I2C fija del AS5600
@@ -35,11 +51,10 @@ void loop()
     delay(200); // Espera 200 ms antes de siguiente lectura
 }
 
-// ----------------------------------------------------------------------------------------------------------
 // FUNCION DE LECTURA DEL AS5600
+//  -----------------------------------------------------------------------
 //  - Lee registros 0x0E (alto) y 0x0F (bajo)
 //  - Valor de 12 bits (0–4095)
-// ----------------------------------------------------------------------------------------------------------
 uint16_t readAS5600Angle()
 {
     Wire1.beginTransmission(AS5600_ADDR);       // Inicia comunicación con el sensor
