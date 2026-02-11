@@ -1,11 +1,27 @@
-/************************************************************************************************************
- 🔹 LECTURA DE ÁNGULO CON AS5600 vía I2C (Wire y Wire1) 🔹
-  - Lee el ángulo de 2 sensores AS5600 conectado a GP4 (SDA) y GP5 (SCL) GP26 (SDA) y GP27 (SCL) usando I2C.
-  - Convierte el valor crudo de 12 bits (0–4095) a grados (0°–360°).
-  - Muestra el ángulo por Serial cada 200 ms.
-  - Usa Wire para I2C0 y Wire1 para I2C1 independiente de los pines por defecto.
-  K. Michalsky – 11.2025
-*************************************************************************************************************/
+// ========================================================================
+//                 🔸 A S 5 6 0 0  -  I 2 C   A N G L E 🔸 
+// ========================================================================
+//  Archivo    : AS5600--I2C_angle.ino
+//  Autor      : Klaus Michalsky
+//  Fecha      : Feb-2026
+//
+//  DESCRIPCION
+//  -----------------------------------------------------------------------
+//  - Lee el ángulo de 2 sensores AS5600 conectado a GP4 (SDA) y GP5 (SCL) 
+//    GP26 (SDA) y GP27 (SCL) usando I2C.
+//  - Convierte el valor crudo de 12 bits (0–4095) a grados (0°–360°).
+//  - Muestra el ángulo por Serial cada 200 ms.
+//  - Usa Wire para I2C0 y Wire1 para I2C1 independiente de los pines por defecto.
+//
+//  HARDWARE
+//  -----------------------------------------------------------------------
+//  MCU     : RP2040-Zero
+//  Sensor  : AS5600
+//
+//  ESTADO
+//  -----------------------------------------------------------------------
+//  ✅ Funcional
+// ========================================================================
 
 #include <Wire.h>
 
